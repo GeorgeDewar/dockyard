@@ -30,6 +30,6 @@ class Shell
     def log(msg)
       puts msg
     end
-    
+
   end
 end
