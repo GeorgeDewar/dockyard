@@ -4,7 +4,7 @@ class CreateBuilds < ActiveRecord::Migration
       t.references :repository, index: true
       t.string :tag
       t.text :logs
-      t.string :status
+      t.string :status, default: 'queued'
 
       t.timestamps
     end

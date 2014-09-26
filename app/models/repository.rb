@@ -1,4 +1,6 @@
 class Repository < ActiveRecord::Base
+  has_many :builds
+
   def repos_path
     '/home/george/dockyard/repos'
   end
@@ -13,9 +15,8 @@ class Repository < ActiveRecord::Base
     save!
   end
 
-  def build
-    Shell.run path, "git pull"
-    Shell.run path, "docker build -t #{docker_uri} ."
-    Shell.run path, "docker push #{docker_uri}"
+  def build(tag)
+    build = builds.create(tag: tag)
+    build.execute
   end
 end
