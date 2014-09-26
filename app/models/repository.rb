@@ -16,5 +16,6 @@ class Repository < ActiveRecord::Base
   def build
     Shell.run path, "git pull"
     Shell.run path, "docker build -t #{docker_uri} ."
+    Shell.run path, "docker push #{docker_uri}"
   end
 end
