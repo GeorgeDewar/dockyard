@@ -4,11 +4,13 @@ class Repository < ActiveRecord::Base
   end
 
   def path
-    repos_path + '/' + id
+    "#{repos_path}/#{id}"
   end
 
   def initialise # not to be confused with initialize, the constructor
     Shell.run repos_path, "git clone #{repo_uri} #{id}"
+    self.initialised = true
+    save!
   end
 
   def build
