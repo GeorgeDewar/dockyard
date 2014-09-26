@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923102121) do
+ActiveRecord::Schema.define(version: 20140926222027) do
+
+  create_table "builds", force: true do |t|
+    t.integer  "repository_id"
+    t.string   "tag"
+    t.text     "logs"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "builds", ["repository_id"], name: "index_builds_on_repository_id"
 
   create_table "repositories", force: true do |t|
     t.string   "name"
