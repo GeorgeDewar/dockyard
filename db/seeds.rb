@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Repository.first_or_create(name: 'dockyard', repo_uri: 'https://github.com/GeorgeDewar/dockyard', docker_uri: 'georged/dockyard')

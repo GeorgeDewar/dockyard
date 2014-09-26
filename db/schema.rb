@@ -14,8 +14,10 @@
 ActiveRecord::Schema.define(version: 20140923102121) do
 
   create_table "repositories", force: true do |t|
-    t.string   "path"
-    t.boolean  "initialized", default: false
+    t.string   "name"
+    t.string   "repo_uri"
+    t.string   "docker_uri"
+    t.boolean  "initialised", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
