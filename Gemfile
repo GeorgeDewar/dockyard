@@ -30,3 +30,4 @@ gem 'jbuilder', '~> 1.2'
 # Use unicorn as the app server
 gem 'unicorn'
 
+gem 'twitter-bootstrap-rails'
