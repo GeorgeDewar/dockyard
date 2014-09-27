@@ -1,5 +1,10 @@
 <h1>New repository</h1>
 
-<%= render 'form' %>
+<%= form_for(@repository) do |f| %>
+  <%= render 'form', f:f %>
 
-<%= link_to 'Back', repositories_path %>
+  <div class="actions">
+      <button class="btn btn-primary" type="submit">Save</button>
+      <%= link_to 'Back', repositories_path, class: 'btn btn-default' %>
+  </div>
+<%= end %>

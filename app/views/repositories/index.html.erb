@@ -1,10 +1,11 @@
-<h1>Listing repositories</h1>
+<h1>repositories</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th></th>
-      <th></th>
+      <th>Name</th>
+      <th>Repo uri</th>
+      <th>Docker uri</th>
       <th></th>
     </tr>
   </thead>
@@ -12,14 +13,15 @@
   <tbody>
     <% @repositories.each do |repository| %>
       <tr>
-        <td><%= link_to 'Show', repository %></td>
-        <td><%= link_to 'Edit', edit_repository_path(repository) %></td>
-        <td><%= link_to 'Destroy', repository, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= repository.name %></td>
+        <td><%= repository.repo_uri %></td>
+        <td><%= repository.docker_uri %></td>
+        <td><%= link_to 'Show', repository %> |
+        <%= link_to 'Edit', edit_repository_path(repository) %> |
+        <%= link_to 'Destroy', repository, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
 
 <%= link_to 'New Repository', new_repository_path %>

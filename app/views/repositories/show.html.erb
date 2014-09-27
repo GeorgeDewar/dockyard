@@ -1,4 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_repository_path(@repository) %> |
-<%= link_to 'Back', repositories_path %>
+<ul class="attributes">
+  <span>Name:</span>
+  <%= @repository.name %>
+</ul>
+
+<ul class="attributes">
+  <span>Repo uri:</span>
+  <%= @repository.repo_uri %>
+</ul>
+
+<ul class="attributes">
+  <span>Docker uri:</span>
+  <%= @repository.docker_uri %>
+</ul>
+
+
+<div class="actions">
+  <%= link_to 'Edit', edit_repository_path(@repository),  class: 'btn btn-default' %>
+  <%= link_to 'Back', repositories_path,  class: 'btn btn-default' %>
+</div>
+

@@ -1,6 +1,11 @@
-<h1>Editing repository</h1>
+<h1>Edit repository</h1>
 
-<%= render 'form' %>
+<%= form_for(@repository) do |f| %>
+  <%= render 'form', f:f %>
 
-<%= link_to 'Show', @repository %> |
-<%= link_to 'Back', repositories_path %>
+  <div class="actions">
+    <button class="btn btn-primary" type="submit">Save</button>
+    <%= link_to 'Show', @repository,  class: 'btn btn-default' %>
+    <%= link_to 'Back', repositories_path, class: 'btn btn-default' %>
+  </div>
+<% end %>

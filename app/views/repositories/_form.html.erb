@@ -1,17 +1,26 @@
-<%= form_for(@repository) do |f| %>
-  <% if @repository.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@repository.errors.count, "error") %> prohibited this repository from being saved:</h2>
 
-      <ul>
-      <% @repository.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% if @repository.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@repository.errors.count, "error") %> prevented this repository from being saved:</h2>
 
-  <div class="actions">
-    <%= f.submit %>
+    <ul>
+    <% @repository.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
   </div>
 <% end %>
+
+  <div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+</div>
+    <div class="form-group">
+  <%= f.label :repo_uri %>
+  <%= f.text_field :repo_uri, class: 'form-control' %>
+</div>
+    <div class="form-group">
+  <%= f.label :docker_uri %>
+  <%= f.text_field :docker_uri, class: 'form-control' %>
+</div>
+  

@@ -44,6 +44,6 @@ class RepositoriesController < ApplicationController
     end
 
     def repository_params
-      params.require(:repository).permit() # permitted attributes here
+      params.require(:repository).permit(:name, :repo_uri, :docker_uri)
     end
 end
