@@ -18,10 +18,10 @@
         <td><%= repository.docker_uri %></td>
         <td><%= link_to 'Show', repository %> |
         <%= link_to 'Edit', edit_repository_path(repository) %> |
-        <%= link_to 'Destroy', repository, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= link_to 'Delete', repository, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New Repository', new_repository_path %>
+<%= link_to 'New Repository', new_repository_path, class: 'btn btn-primary' %>

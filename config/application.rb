@@ -22,5 +22,12 @@ module Dockyard
 
     # Autoload lib/ folder including all subdirectories
     config.autoload_paths += Dir["#{Rails.root}/lib/**/"]
+
+    config.generators do |g|
+      #g.assets            false
+      g.helper            false
+      g.test_framework    nil
+      g.jbuilder          false
+    end
   end
 end
