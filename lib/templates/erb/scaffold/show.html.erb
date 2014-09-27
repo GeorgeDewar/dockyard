@@ -1,11 +1,15 @@
 <p id="notice"><%%= notice %></p>
 
 <% attributes.reject(&:password_digest?).each do |attribute| -%>
-<p>
-  <strong><%= attribute.human_name %>:</strong>
+<ul class="attributes">
+  <span><%= attribute.human_name %>:</span>
   <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
-</p>
+</ul>
 
 <% end -%>
-<%%= link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>) %> |
-<%%= link_to 'Back', <%= index_helper %>_path %>
+
+<div class="actions">
+  <%%= link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>),  class: 'btn btn-default' %>
+  <%%= link_to 'Back', <%= index_helper %>_path,  class: 'btn btn-default' %>
+</div>
+
