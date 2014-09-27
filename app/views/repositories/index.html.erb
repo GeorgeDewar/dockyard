@@ -6,19 +6,17 @@
       <th>Name</th>
       <th>Repo URI</th>
       <th>Docker URI</th>
-      <th></th>
+      <th>Last build</th>
     </tr>
   </thead>
 
   <tbody>
     <% @repositories.each do |repository| %>
       <tr>
-        <td><%= repository.name %></td>
+        <td><%= link_to repository.name, repository %></td>
         <td><%= repository.repo_uri %></td>
         <td><%= repository.docker_uri %></td>
-        <td><%= link_to 'Show', repository %> |
-        <%= link_to 'Edit', edit_repository_path(repository) %> |
-        <%= link_to 'Delete', repository, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= repository.builds.where(status: 'complete').last.try(:created_at) || 'Never' %></td>
       </tr>
     <% end %>
   </tbody>
