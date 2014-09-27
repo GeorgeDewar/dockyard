@@ -1,22 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<ul class="attributes">
-  <span>Name:</span>
-  <%= @repository.name %>
-</ul>
+<h1><%= @repository.name %></h1>
 
-<ul class="attributes">
-  <span>Repo uri:</span>
-  <%= @repository.repo_uri %>
-</ul>
+<p><%= link_to @repository.repo_uri, @repository.repo_uri %></p>
 
-<ul class="attributes">
-  <span>Docker uri:</span>
-  <%= @repository.docker_uri %>
-</ul>
+<h3>Builds</h3>
 
+<table class="table">
+    <thead>
+    <tr>
+        <th>Started at</th>
+        <th>Tag</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @repository.builds.each do |build| %>
+      <tr>
+          <td><%= build.created_at %></td>
+          <td><%= build.tag %></td>
+          <td><%= build.status %></td>
+      </tr>
+    <% end %>
+    </tbody>
+</table>
 
 <div class="actions">
+  <h3>Actions</h3>
   <%= link_to 'Edit', edit_repository_path(@repository),  class: 'btn btn-default' %>
   <%= link_to 'Delete', @repository, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
   <%= link_to 'Back', repositories_path,  class: 'btn btn-default' %>
