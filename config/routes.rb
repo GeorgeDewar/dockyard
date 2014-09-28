@@ -7,6 +7,8 @@ Dockyard::Application.routes.draw do
 
   resources :repositories
 
+  get 'callback/github' => 'callback#github'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

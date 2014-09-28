@@ -33,3 +33,4 @@ gem 'unicorn'
 gem 'twitter-bootstrap-rails'
 
 gem 'github_api'
+gem 'pry'

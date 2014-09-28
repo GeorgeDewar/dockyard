@@ -10,6 +10,8 @@ class RepositoriesController < ApplicationController
 
   def new
     @repository = Repository.new
+
+    @github_auth_url = Github.new.authorize_url redirect_uri: 'http://localhost:3000/callback/github?from=new', scope: 'repo'
   end
 
   def edit
