@@ -31,3 +31,5 @@ gem 'jbuilder', '~> 1.2'
 gem 'unicorn'
 
 gem 'twitter-bootstrap-rails'
+
+gem 'github_api'
