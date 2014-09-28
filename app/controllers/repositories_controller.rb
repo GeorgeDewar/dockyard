@@ -11,7 +11,12 @@ class RepositoriesController < ApplicationController
   def new
     @repository = Repository.new
 
-    @github_auth_url = Github.new.authorize_url redirect_uri: 'http://localhost:3000/callback/github?from=new', scope: 'repo'
+    github = Github.new oauth_token: session[:github_token]
+    connected = !!session[:github_token]
+
+    @github_auth_url = github.authorize_url redirect_uri: 'http://localhost:3000/callback/github?from=new', scope: 'repo'
+    @repos = github.repos.list if connected
+
   end
 
   def edit

@@ -3,7 +3,10 @@
 <%= form_for(@repository) do |f| %>
   <%= render 'form', f:f %>
 
-  <%= link_to 'Connect to GitHub', @github_auth_url %>
+  <%= link_to 'Connect to GitHub', @github_auth_url unless @repos %>
+  <% @repos.each do |repo| %>
+    <%= repo.full_name %><br />
+  <% end %>
 
   <div class="actions">
       <button class="btn btn-primary" type="submit">Save</button>
